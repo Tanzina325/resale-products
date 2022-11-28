@@ -26,13 +26,26 @@ const SignUp = () => {
         
         const password = form.password.value;
         console.log(email,password,role);
+        
         createUser(email,password)
         .then(result=>{
             const user=result.user;
             console.log(user);
             form.reset();
             setError(error.message)
-            handleUpdateUserProfile(name,photoURL,role)
+            // handleUpdateUserProfile(name,photoURL,role,email)
+            const profile ={
+              displayName:name,
+              photoURL:photoURL,
+              role:role
+              
+              
+          }
+          updateUserProfile(profile)
+          .then(()=>{
+          saveUser(name,email,role)
+          })
+          .catch(error=>console.error(error))
              navigate('/')
         })
         .catch(error=>{
@@ -40,17 +53,20 @@ const SignUp = () => {
             setError(error.message)
         })
     }
-    const handleUpdateUserProfile=(name,photoURL,role)=>{
-      const profile ={
-          displayName:name,
-          photoURL:photoURL,
-          role:role
+  //   const handleUpdateUserProfile=(name,photoURL)=>{
+  //     const profile ={
+  //         displayName:name,
+  //         photoURL:photoURL,
           
-      }
-      updateUserProfile(profile)
-      .then(()=>{})
-      .catch(error=>console.error(error))
-  }
+          
+          
+  //     }
+  //     updateUserProfile(profile)
+  //     .then(()=>{
+      
+  //     })
+  //     .catch(error=>console.error(error))
+  // }
 
     const handleGoogleSignIn=()=>{
         providerLogin(googleProvider)
@@ -60,8 +76,21 @@ const SignUp = () => {
           navigate(from,{replace:true})})
           .catch(error=>{
               console.error(error);
-      })}
-     
+      });
+    }
+     const saveUser =(name,email,role)=>{
+      const user ={name,email,role};
+      fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users',{
+        method: 'POST',
+        headers:{
+            'content-type' :'application/json'
+        },
+        body: JSON.stringify(user)
+        })
+      .then(res=>res.json())
+      .then(data=>console.log(data))
+
+     }
     return (
         <div>
            <div className="hero  bg-base-200">

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import PhoneCard from "../../components/Category/PhoneCard";
 import Main from "../../Layout/Main"
 import AddAPhone from "../../Pages/AddAPhone/AddAPhone";
+import ALLBuyers from "../../Pages/ALLBuyers/ALLBuyers";
 import Home from "../../Pages/Home/Home"
 import LogIn from "../../Pages/LogIn/LogIn";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -39,7 +40,10 @@ const router = createBrowserRouter([
                 path:'/register',
                 element:<SignUp></SignUp>
             },
-            
+            {
+                path:'/allbuyers',
+                element:<ALLBuyers></ALLBuyers>
+            }
         ]
     }
 ])
