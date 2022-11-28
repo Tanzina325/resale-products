@@ -1,14 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-
+// import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AddAPhone = () => {
 
-  const {data:categories =[]} = useQuery({
-    queryKey:['categories'],
-    queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/phones')
-    .then(res=>res.json())
-})
+//   const {data:categories =[]} = useQuery({
+//     queryKey:['categories'],
+//     queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/phones')
+//     .then(res=>res.json())
+// })
     const[product,setProduct]=useState({})
+    const{user}=useContext(AuthContext)
 // const[phoneCategory,setPhoneCategory]=useState[{}]
 
 //     useEffect(()=>{
@@ -20,13 +21,13 @@ const AddAPhone = () => {
     const handleAddPhone =event =>{
         event.preventDefault();
         console.log(product);
-
-        fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/phones/${categories?.category}`,{
-        method: 'PUT',
+      const email =`${user?.email}`
+        fetch('https://b612-used-products-resale-server-side-inky.vercel.app/addProducts',{
+        method: 'POST',
         headers:{
             'content-type' :'application/json'
         },
-        body: JSON.stringify([product])
+        body: JSON.stringify({...product,email})
         })
       .then(res=>res.json())
       .then(data=>console.log(data))
