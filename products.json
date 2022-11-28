@@ -1,10 +1,10 @@
 [
     {
-        "category":"SAMSUNG GALAXY",
-        "image" : "https://i1.wp.com/smartprice.com.pk/wp-content/uploads/2020/06/best-samsung-phones-juneand-price-in-pakistan-3.jpg?fit=1200%2C1200&ssl=1",
-        "product" :
-        [
-            {
+    "category":"SAMSUNG GALAXY",
+"image" : "https://i1.wp.com/smartprice.com.pk/wp-content/uploads/2020/06/best-samsung-phones-juneand-price-in-pakistan-3.jpg?fit=1200%2C1200&ssl=1",
+    
+            "product":[{   "category_id":"6383497ccb7eb7da127e2cae",
+                "category":"SAMSUNG GALAXY",
                 "name":"Samsung Galaxy S21 Ultra 5G ",
                 "picture" :"https://m.media-amazon.com/images/I/81J0QOSKU-L._AC_SX569_.jpg",
                 "location":"Dhaka",
@@ -17,7 +17,11 @@
                 "post-time":"9 Nov,2022",
                 "seller-name":"Matiar Rahaman"
             },
-            {   
+            { 
+        
+               
+            "category_id":"6383497ccb7eb7da127e2cae",
+                "category":"SAMSUNG GALAXY",
                 "name":"Samsung Galaxy S22 Ultra S9080",
                 "picture" :"https://m.media-amazon.com/images/I/71M4DO4SeoL._AC_SX679_.jpg",
                 "location":"chittagong",
@@ -29,16 +33,14 @@
                 "condition_type":"Fair",
                 "post-time":"10 Sep ,2022",
                 "seller-name":"Sanjida Islam"
-            }
-        ]
+     }] },
+        
 
-    },
-    {
-        "category":"VIVO",
-        "image" : "https://cdn.nerdschalk.com/wp-content/uploads/2018/06/Vivo-V9.jpg",
-        "product" :
-        [
-            {
+    
+    { "category":"VIVO",
+    "image" : "https://cdn.nerdschalk.com/wp-content/uploads/2018/06/Vivo-V9.jpg",
+               "product":[{ "category_id":"6383497ccb7eb7da127e2caf",
+                "category":"VIVO",
                 "name":"V23 5G",
                 "picture" :"https://www.vivoglobal.ph/wp-content/uploads/2022/02/v23-5g-sunshine-gold.png.webp",
                 "location":"Barisal",
@@ -51,7 +53,8 @@
                 "post-time":"6 July ,2022",
                 "seller-name":"Tanzina Rahman"
             },
-            {   
+            {   "category_id":"6383497ccb7eb7da127e2caf",
+            "category":"VIVO",
                 "name":"V23e 5G",
                 "picture" :"https://www.vivoglobal.ph/wp-content/uploads/2022/02/v23e-5g-sunshine-coast.png.webp",
                 "location":"Mirpur",
@@ -63,16 +66,19 @@
                 "condition_type":"Excellent",
                 "post-time":"7 Oct ,2022",
                 "seller-name":"Mujibur Rahaman"
-            }
-        ]
+            }]},
+        
 
-    },
-    {
-        "category":"OPPO",
-        "image" : "https://cdn.techjuice.pk/wp-content/uploads/2021/04/oppo-k3-pakistan-priceoye-qc93j.jpg",
-        "product" :
-        [
-            {
+    
+    
+        
+        
+           {  "category":"OPPO",
+           "image" : "https://cdn.techjuice.pk/wp-content/uploads/2021/04/oppo-k3-pakistan-priceoye-qc93j.jpg",
+            
+           "product":[
+           {"category_id":"6383497ccb7eb7da127e2cb0",
+            "category":"OPPO",
                 "name":"Oppo Find X5 Pro",
                 "picture" :"https://m.media-amazon.com/images/I/71QmFJCJ-ML._AC_SX679_.jpg",
                 "location":"Narayangonj",
@@ -85,7 +91,8 @@
                 "post-time":"20 Aug ,2022",
                 "seller-name":"Raihan Ahmed"
             },
-            {   
+            {   "category_id":"6383497ccb7eb7da127e2cb0",
+            "category":"OPPO",
                 "name":"Oppo Reno 6 Pro",
                 "picture" :"https://m.media-amazon.com/images/I/41ljHDD969L._AC_.jpg",
                 "location":"Cumilla",
@@ -97,8 +104,7 @@
                 "condition_type":"Good",
                 "post-time":"5 May,2021",
                 "seller-name":"Arifur Rahaman"
-            }
+            }]}
         ]
 
-    }
-]
+    
