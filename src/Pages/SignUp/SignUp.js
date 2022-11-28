@@ -20,17 +20,19 @@ const SignUp = () => {
         event.preventDefault();
         const form = event.target;
         const name =form.name.value;
-        const photoURL =form.name.value
+        const photoURL =form.photoURL.value
         const email =form.email.value;
+        const role =form.role.value;
+        
         const password = form.password.value;
-        console.log(email,password);
+        console.log(email,password,role);
         createUser(email,password)
         .then(result=>{
             const user=result.user;
             console.log(user);
             form.reset();
             setError(error.message)
-            handleUpdateUserProfile(name,photoURL)
+            handleUpdateUserProfile(name,photoURL,role)
              navigate('/')
         })
         .catch(error=>{
@@ -38,10 +40,11 @@ const SignUp = () => {
             setError(error.message)
         })
     }
-    const handleUpdateUserProfile=(name,photoURL)=>{
+    const handleUpdateUserProfile=(name,photoURL,role)=>{
       const profile ={
           displayName:name,
-          photoURL:photoURL
+          photoURL:photoURL,
+          role:role
           
       }
       updateUserProfile(profile)
@@ -93,8 +96,17 @@ const SignUp = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" name='password'placeholder="password" className="input input-bordered" />
-          
         </div>
+        
+<div className="form-control">
+<input type="text" name="role" list="roleList" className="input input-bordered" />
+    <datalist id="roleList">
+        <option value="buyer" />
+        <option value="seller" />
+        
+    </datalist>
+    
+</div>
         <p>{error}</p>
         <Link to ='/register'><p>New to this website ?</p></Link>
         <div className="form-control mt-6">
