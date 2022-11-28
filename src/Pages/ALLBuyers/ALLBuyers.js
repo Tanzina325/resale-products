@@ -6,9 +6,9 @@ import AllBuyerCard from '../../components/AllBuyerCard/AllBuyerCard';
 
 const ALLBuyers = () => {
 
-    const {data:users =[],buyer} = useQuery({
+    const {data:users =[]} = useQuery({
         queryKey:['users'],
-        queryFn : ()=> fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/users?role=${buyer}`)
+        queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users')
         .then(res=>res.json())
     })
     console.log(users);
