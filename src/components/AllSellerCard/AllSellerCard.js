@@ -1,13 +1,12 @@
-// import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
-const AllBuyerCard = ({user}) => {
+const AllSellerCard = ({user}) => {
     const{name,role,email}=user;
     
     return (
         <>
             
-             {role==='buyer' ?
+             {role==='seller' ?
             
             <tr>
       
@@ -23,4 +22,4 @@ const AllBuyerCard = ({user}) => {
     );
 };
 
-export default AllBuyerCard;
+export default AllSellerCard;
