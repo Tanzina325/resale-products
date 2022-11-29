@@ -11,6 +11,7 @@ import LogIn from "../../Pages/LogIn/LogIn";
 import MyOrder from "../../Pages/MyOrder/MyOrder";
 import MyProduct from "../../Pages/MyProduct/MyProduct";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/:id',
-                element:<PhoneCard></PhoneCard>,
+                element:<PrivateRoute><PhoneCard></PhoneCard></PrivateRoute>,
                 loader:({params})=>fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/category/${params.id}`)
             },
             
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
             {
                 path:'/dashboard',
