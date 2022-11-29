@@ -3,11 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AddAPhone = () => {
 
-//   const {data:categories =[]} = useQuery({
-//     queryKey:['categories'],
-//     queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/phones')
-//     .then(res=>res.json())
-// })
+  
     const[product,setProduct]=useState({})
     const{user}=useContext(AuthContext)
 // const[phoneCategory,setPhoneCategory]=useState[{}]
@@ -22,7 +18,7 @@ const AddAPhone = () => {
         event.preventDefault();
         console.log(product);
       const email =`${user?.email}`
-        fetch('https://b612-used-products-resale-server-side-inky.vercel.app/addProducts',{
+        fetch('https://b612-used-products-resale-server-side-inky.vercel.app/products',{
         method: 'POST',
         headers:{
             'content-type' :'application/json'
@@ -57,7 +53,7 @@ const handleInputBlur = event =>{
           <label className="label">
             <span className="label-text">Title of phone</span>
           </label>
-          <input onBlur={handleInputBlur} type="text"name='title' placeholder="title of service" className="input input-bordered" />
+          <input onBlur={handleInputBlur} type="text"name='name' placeholder="title of service" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

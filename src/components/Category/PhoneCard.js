@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import PhoneItem from './PhoneItem';
 
 const PhoneCard = () => {
   const phones =useLoaderData();
-  const phone = phones.product;
-  console.log(phone)
-//   console.log(phones)
+  const{category}=phones
+//   console.log(phone)
+  console.log(phones)
+  const[products,setProducts]=useState([])
+
+    useEffect(()=>{
+      fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/products?category=${category}`)
+      .then(res=>res.json())
+      .then(data=>setProducts(data))
+      },[category]);
+      console.log(products)
     return (
         <div>
-            <div className=' m-10'>
-            {
-                phone.map((eachProduct,i)=><PhoneItem key ={i} eachProduct={eachProduct}></PhoneItem>)
-            }
-        </div>
+           { products.map(product=> <PhoneItem
+            key={product._id}
+           product={product}
+           ></PhoneItem>)}
         </div>
     );
 };

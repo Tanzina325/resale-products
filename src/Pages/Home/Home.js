@@ -4,7 +4,7 @@ import CategoryCard from '../../components/Category/CategoryCard';
 const Home = () => {
 const {data:categories =[]} = useQuery({
     queryKey:['categories'],
-    queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/phones')
+    queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/category')
     .then(res=>res.json())
 })
 // console.log(categories)

@@ -5,6 +5,7 @@ import AddAPhone from "../../Pages/AddAPhone/AddAPhone";
 import ALLBuyers from "../../Pages/ALLBuyers/ALLBuyers";
 import Home from "../../Pages/Home/Home"
 import LogIn from "../../Pages/LogIn/LogIn";
+import MyProduct from "../../Pages/MyProduct/MyProduct";
 import SignUp from "../../Pages/SignUp/SignUp";
 
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path:'/:id',
                 element:<PhoneCard></PhoneCard>,
-                loader:({params})=>fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/phones/${params.id}`)
+                loader:({params})=>fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/category/${params.id}`)
             },
             
             {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path:'/allbuyers',
                 element:<ALLBuyers></ALLBuyers>
+            },
+            {
+                path:'/myproducts',
+                element:<MyProduct></MyProduct>
             }
         ]
     }

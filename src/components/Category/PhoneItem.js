@@ -1,7 +1,7 @@
 import React from 'react';
 
-const PhoneItem = ({eachProduct}) => {
-    const{name,picture,details}=eachProduct
+const PhoneItem = ({product}) => {
+    const{name,picture,details}=product
     return (
         <div>
             <div className="card lg:card-side bg-base-100 my-10 shadow-xl">
