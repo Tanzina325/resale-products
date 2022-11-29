@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import PhoneCard from "../../components/Category/PhoneCard";
+import Dashboard from "../../Dashboard/Dashboard/Dashboard";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main"
 import AddAPhone from "../../Pages/AddAPhone/AddAPhone";
 import ALLBuyers from "../../Pages/ALLBuyers/ALLBuyers";
@@ -33,20 +35,32 @@ const router = createBrowserRouter([
                 path:'/login',
                 element:<LogIn></LogIn>
             },
-            {
-                path:'/addAPhone',
-                element:<AddAPhone></AddAPhone>
-            },
+            
             {
                 path:'/register',
                 element:<SignUp></SignUp>
+            }
+            
+        ]
+    },
+    {
+        path:'/dashboard',
+        element:<DashboardLayout></DashboardLayout>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<Dashboard></Dashboard>
             },
             {
-                path:'/allbuyers',
+                path:'dashboard/addAPhone',
+                element:<AddAPhone></AddAPhone>
+            },
+            {
+                path:'dashboard/allbuyers',
                 element:<ALLBuyers></ALLBuyers>
             },
             {
-                path:'/myproducts',
+                path:'dashboard/myproducts',
                 element:<MyProduct></MyProduct>
             }
         ]

@@ -4,11 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const MyProduct = () => {
 const {user}=useContext(AuthContext);
-    // const {data:products =[]} = useQuery({
-    //     queryKey:['products',user?.email],
-    //     queryFn : ()=> fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/addProduct?email=${user?.email}`)
-    //     .then(res=>res.json())
-    // })
+    
 
     const[products,setProducts]=useState([])
 
