@@ -1,11 +1,13 @@
 // import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AddAPhone = () => {
 
   const postTime =new Date();
-    const[product,setProduct]=useState({})
-    const{user}=useContext(AuthContext)
+    const[product,setProduct]=useState({});
+    const{user}=useContext(AuthContext);
+    const navigate=useNavigate()
 // const[phoneCategory,setPhoneCategory]=useState[{}]
 
 //     useEffect(()=>{
@@ -18,15 +20,19 @@ const AddAPhone = () => {
         event.preventDefault();
         console.log(product);
       const sellerName =`${user?.displayName}`
+      const email =`${user?.email}`
         fetch('https://b612-used-products-resale-server-side-inky.vercel.app/products',{
         method: 'POST',
         headers:{
             'content-type' :'application/json'
         },
-        body: JSON.stringify({...product,sellerName,postTime})
+        body: JSON.stringify({...product,sellerName,postTime,email})
         })
       .then(res=>res.json())
-      .then(data=>console.log(data))
+      .then(data=>{
+        console.log(data);
+        navigate('/dashboard/myproducts')
+      })
         }
 
 const handleInputBlur = event =>{
@@ -81,35 +87,35 @@ const handleInputBlur = event =>{
           <label className="label">
             <span className="label-text"> Original Price  </span>
           </label>
-          <input  onBlur={handleInputBlur} type="text" name='original-price' className="input input-bordered" required />
+          <input  onBlur={handleInputBlur} type="text" name='original_price' className="input input-bordered" required />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text"> Resale Price  </span>
           </label>
-          <input  onBlur={handleInputBlur} type="text" name='resale-price' className="input input-bordered" required />
+          <input  onBlur={handleInputBlur} type="text" name='resale_price' className="input input-bordered" required />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text"> Years of use  </span>
           </label>
-          <input  onBlur={handleInputBlur} type="text" name='years-of-use' className="input input-bordered" required />
+          <input  onBlur={handleInputBlur} type="text" name='years_of_use' className="input input-bordered" required />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text"> Years of purchage  </span>
           </label>
-          <input  onBlur={handleInputBlur} type="text" name='years-of-purchage' className="input input-bordered" required />
+          <input  onBlur={handleInputBlur} type="text" name='years_of_purchage' className="input input-bordered" required />
           
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text"> Mobile number  </span>
           </label>
-          <input  onBlur={handleInputBlur} type="text" name='mobile number' className="input input-bordered" required />
+          <input  onBlur={handleInputBlur} type="text" name='mobile_number' className="input input-bordered" required />
           
         </div>
         <div className="form-control ">
@@ -129,7 +135,7 @@ const handleInputBlur = event =>{
 <label className="label">
             <span className="label-text">Choose condition type</span>
           </label>
-<input onBlur={handleInputBlur} type="text" name="condition-type" list="rolesList"  className="input input-bordered" required />
+<input onBlur={handleInputBlur} type="text" name="condition_type" list="rolesList"  className="input input-bordered" required />
     <datalist id="rolesList">
         <option value="excellent" />
         <option value="good" />
