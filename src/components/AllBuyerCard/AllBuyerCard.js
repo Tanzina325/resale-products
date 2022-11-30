@@ -14,6 +14,7 @@ const AllBuyerCard = ({user}) => {
       <td>{ name}</td>
       <td>{email}</td>
       <td>{role}</td>
+      <td><button className='btn btn-primary'>Delete</button></td>
     </tr>
     
        

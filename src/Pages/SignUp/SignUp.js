@@ -41,9 +41,12 @@ const SignUp = () => {
               
               
           }
+          const status={
+            status:'unverified'
+          }
           updateUserProfile(profile)
           .then(()=>{
-          saveUser(displayName,email,role)
+          saveUser(displayName,email,role,status)
           })
           .catch(error=>console.error(error))
              navigate('/')
@@ -84,8 +87,8 @@ const SignUp = () => {
               console.error(error);
       });
     }
-     const saveUser =(name,email,role)=>{
-      const user ={name,email,role};
+     const saveUser =(name,email,role,status)=>{
+      const user ={name,email,role,status};
       fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users',{
         method: 'POST',
         headers:{

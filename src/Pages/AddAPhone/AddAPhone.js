@@ -8,19 +8,14 @@ const AddAPhone = () => {
     const[product,setProduct]=useState({});
     const{user}=useContext(AuthContext);
     const navigate=useNavigate()
-// const[phoneCategory,setPhoneCategory]=useState[{}]
-
-//     useEffect(()=>{
-//       fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/phones?category=${categories?.category}`)
-//       .then(res=>res.json())
-//       .then(data=>setPhoneCategory(data))
-//       },[categories?.category,setPhoneCategory]);
-//       console.log(phoneCategory)
+    
     const handleAddPhone =event =>{
         event.preventDefault();
         console.log(product);
-      const sellerName =`${user?.displayName}`
-      const email =`${user?.email}`
+      const sellerName =`${user?.displayName}`;
+      const email =`${user?.email}`;
+      // const seller_verification=`${currentUser.status}`;
+      
         fetch('https://b612-used-products-resale-server-side-inky.vercel.app/products',{
         method: 'POST',
         headers:{

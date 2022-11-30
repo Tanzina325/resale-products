@@ -7,12 +7,22 @@ import AllSellerCard from '../../components/AllSellerCard/AllSellerCard';
 
 const AllSeller = () => {
 
-    const {data:users =[]} = useQuery({
+    const {data:users =[],refetch} = useQuery({
         queryKey:['users'],
         queryFn : ()=> fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users')
         .then(res=>res.json())
     })
     console.log(users);
+    const handleVerify = id =>{
+      console.log('verifying',id)
+               const proceed =window.confirm('want to verify') ;
+               if(proceed) {
+                  fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/users/${id}`,{
+                      method: 'PUT'})
+                  .then(res=>res.json())
+                  .then(data=>{
+                      console.log(data);
+                    refetch()})}}
     
     
     return (
@@ -25,13 +35,16 @@ const AllSeller = () => {
         
         <th>Name</th>
         <th >Email</th>
-        <th>role</th>
+        <th>Role</th>
+        <th>Action</th>
+        <th>Verification</th>
       </tr>
     </thead>
     <tbody>{
                 users.map(user =><AllSellerCard 
                     key={user._id}
                 user={user}
+                handleVerify={handleVerify}
                 ></AllSellerCard>)
                 
                     

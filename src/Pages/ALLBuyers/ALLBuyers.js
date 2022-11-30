@@ -24,7 +24,8 @@ const ALLBuyers = () => {
         
         <th>Name</th>
         <th >Email</th>
-        <th>role</th>
+        <th>Role</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>{
