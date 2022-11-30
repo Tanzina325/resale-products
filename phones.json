@@ -10,7 +10,7 @@
         "purchase-of-years":"2019",
         "details":"SM-G998B/DS 256GB 12GB RAM Factory Unlocked (GSM Only | No CDMA - not Compatible with Verizon/Sprint) International Version - Phantom Silver",
         "condition_type":"Good",
-        "post-time":"9 Nov,2022",
+        "postTime":"9 Nov,2022",
         "seller-name":"Matiar Rahaman"
     },
     {"category":"SAMSUNG GALAXY",
@@ -23,8 +23,9 @@
                 "purchase-of-years":"2021",
                 "details":"5G Dual-SIM | 256GB ROM | 12GB RAM | Factory Unlocked for All Carriers - Burgundy",
                 "condition_type":"Fair",
-                "post-time":"10 Sep ,2022",
+                "postTime":"10 Sep ,2022",
                 "seller-name":"Sanjida Islam"},
+                
                 { "category":"VIVO",
                 "name":"V23 5G",
                 "picture" :"https://www.vivoglobal.ph/wp-content/uploads/2022/02/v23-5g-sunshine-gold.png.webp",
@@ -37,6 +38,7 @@
                 "condition_type":"Fair",
                 "post-time":"6 July ,2022",
                 "seller-name":"Tanzina Rahman"},
+
                 { "category":"VIVO",
                 "name":"V23e 5G",
                 "picture" :"https://www.vivoglobal.ph/wp-content/uploads/2022/02/v23e-5g-sunshine-coast.png.webp",

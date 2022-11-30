@@ -19,7 +19,7 @@ const SignUp = () => {
     const handleSubmit =event =>{
         event.preventDefault();
         const form = event.target;
-        const name =form.name.value;
+        const displayName =form.displayName.value;
         const photoURL =form.photoURL.value
         const email =form.email.value;
         const role =form.role.value;
@@ -35,7 +35,7 @@ const SignUp = () => {
             setError(error.message)
            
             const profile ={
-              displayName:name,
+              displayName:displayName,
               photoURL:photoURL
               
               
@@ -43,7 +43,7 @@ const SignUp = () => {
           }
           updateUserProfile(profile)
           .then(()=>{
-          saveUser(name,email,role)
+          saveUser(displayName,email,role)
           })
           .catch(error=>console.error(error))
              navigate('/')
@@ -62,7 +62,7 @@ const SignUp = () => {
           const user=result.user;
          
           const googleUser ={
-            name:`${user.displayName}`,
+            displayName:`${user.displayName}`,
             email:`${user.email}`,
             role:'buyer'
           }
@@ -112,7 +112,7 @@ const SignUp = () => {
           <label className="label">
             <span className="label-text">Full Name</span>
           </label>
-          <input type="text"name='name' placeholder="Full Name" className="input input-bordered" required />
+          <input type="text"name='displayName' placeholder="Full Name" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">

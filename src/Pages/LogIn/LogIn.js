@@ -42,7 +42,7 @@ const LogIn = () => {
           const user=result.user;
           console.log(user);
           const googleUser ={
-            name:`${user.displayName}`,
+            displayName:`${user.displayName}`,
             email:`${user.email}`,
             role:'buyer'
           }
