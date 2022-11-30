@@ -6,6 +6,7 @@ import Main from "../../Layout/Main"
 import AddAPhone from "../../Pages/AddAPhone/AddAPhone";
 import ALLBuyers from "../../Pages/ALLBuyers/ALLBuyers";
 import AllSeller from "../../Pages/AllSeller/AllSeller";
+import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home"
 import LogIn from "../../Pages/LogIn/LogIn";
 import MyOrder from "../../Pages/MyOrder/MyOrder";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 element:<LogIn></LogIn>
+            },
+            {
+                path:'/blogs',
+                element:<Blogs></Blogs>
             },
             
             {
