@@ -23,6 +23,19 @@ const AllSeller = () => {
                   .then(data=>{
                       console.log(data);
                     refetch()})}}
+                    const handleDelete = id =>{
+                      console.log('deleting',id)
+                               const proceed =window.confirm('want to delete') ;
+                               if(proceed) {
+                                  fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/users/${id}`,{
+                                      method: 'DELETE'})
+                                  .then(res=>res.json())
+                                  .then(data=>{
+                                      console.log(data);
+                                      refetch()
+                      
+                      
+                  })}}
     
     
     return (
@@ -45,6 +58,7 @@ const AllSeller = () => {
                     key={user._id}
                 user={user}
                 handleVerify={handleVerify}
+                handleDelete={handleDelete}
                 ></AllSellerCard>)
                 
                     

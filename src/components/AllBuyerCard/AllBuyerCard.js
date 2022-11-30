@@ -1,8 +1,8 @@
 
 import React from 'react';
 
-const AllBuyerCard = ({user}) => {
-    const{name,role,email}=user;
+const AllBuyerCard = ({user,handleDelete}) => {
+    const{name,role,email,_id}=user;
     
     return (
         <>
@@ -14,7 +14,7 @@ const AllBuyerCard = ({user}) => {
       <td>{ name}</td>
       <td>{email}</td>
       <td>{role}</td>
-      <td><button className='btn btn-primary'>Delete</button></td>
+      <td><button onClick={()=>handleDelete(_id)} className='btn btn-primary'>Delete</button></td>
     </tr>
     
        
