@@ -8,14 +8,27 @@ const {user}=useContext(AuthContext);
     
 
     const[products,setProducts]=useState([])
-
+const[refresh,setrefresh]=useState(false)
     useEffect(()=>{
       fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/product?email=${user?.email}`)
       .then(res=>res.json())
-      .then(data=>setProducts(data))
-      },[user?.email]);
+      .then(data=>{
+        setProducts(data);
+        setrefresh(!refresh);}
+      )
+      },[user?.email,refresh]);
       
     console.log(products);
+    const handleAdvertise = id =>{
+        console.log('verifying',id)
+                 const proceed =window.confirm('want to verify') ;
+                 if(proceed) {
+                    fetch(`https://b612-used-products-resale-server-side-inky.vercel.app/products/${id}`,{
+                        method: 'PUT'})
+                    .then(res=>res.json())
+                    .then(data=>{
+                        console.log(data);
+                      })}}
     const handleDelete = id =>{
         console.log('deleting',id)
                  const proceed =window.confirm('want to delete') ;
@@ -38,6 +51,7 @@ const {user}=useContext(AuthContext);
             {products.map(product=><MyProductCard key={product._id}
                 product={product}
                 handleDelete={handleDelete}
+              handleAdvertise={handleAdvertise}
                 ></MyProductCard>)}
         </div>
     );
