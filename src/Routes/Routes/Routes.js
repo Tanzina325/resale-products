@@ -11,6 +11,7 @@ import Home from "../../Pages/Home/Home"
 import LogIn from "../../Pages/LogIn/LogIn";
 import MyOrder from "../../Pages/MyOrder/MyOrder";
 import MyProduct from "../../Pages/MyProduct/MyProduct";
+import Page404 from "../../Pages/Page404/Page404";
 import SignUp from "../../Pages/SignUp/SignUp";
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -54,6 +55,9 @@ const router = createBrowserRouter([
         ]
     },
     {
+        path:'/*',
+        element:<Page404></Page404>},
+    {
         path:'/dashboard',
         element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
@@ -83,5 +87,6 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+    
+]);
 export default router;

@@ -41,9 +41,7 @@ const SignUp = () => {
               
               
           }
-          const status={
-            status:'unverified'
-          }
+          const status='unverified'
           updateUserProfile(profile)
           .then(()=>{
           saveUser(displayName,email,role,status)

@@ -31,8 +31,8 @@ const Header = () => {
         {
               user?.uid ?
               <>
-              <li><Link to='/services/add'>Add Service</Link></li>
-              <li><Link to='/myreviews'>My reviews</Link></li>
+              
+              
               <div className='ml-4'><button onClick={handleLogOut} >Logout</button></div>
               
               </>
@@ -43,7 +43,7 @@ const Header = () => {
               </>}
       </ul>
     </div>
-    <Link to='' className="btn btn-ghost normal-case text-xl">Reused Mobile Phones</Link>
+    <Link to='' className="btn btn-ghost normal-case text-xl">POSHMARK</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
@@ -53,7 +53,7 @@ const Header = () => {
               user?.uid ?
               <>
               <li><Link to='/dashboard'>Dashboard</Link></li>
-              <li><Link to='/myreviews'>My reviews</Link></li>
+              
               <div className='my-3'><button onClick={handleLogOut} >Logout</button></div>
               
               </>

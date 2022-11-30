@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react';
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
-const PhoneItem = ({product}) => {
+const PhoneItem = ({product,setPhone}) => {
   // const {status}=currentuser
 
     const{name,picture,details,location,resale_price,original_price,years_of_use,postTime,sellerName,email}=product
@@ -26,14 +26,14 @@ const PhoneItem = ({product}) => {
       <li>years of use :{years_of_use} years</li>
       <li>time of post :{postTime}</li>
       <div className='flex justify-between'>
-      <h1>seller :{sellerName}</h1>
+      <h1>{currentUser.status} seller :{sellerName}</h1>
       <h1>{
          currentUser.status==='verified'&&<BsFillCheckCircleFill style={{width:'200px',height:'30px'}}className='text-info mr-20 lg:mr-96'></BsFillCheckCircleFill>
       }</h1>
       </div>
     </ul>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Book now</button>
+    <label onClick={()=>setPhone(product)} htmlFor="booking-modal" className="btn">Book Now</label>
     </div>
   </div>
 </div>

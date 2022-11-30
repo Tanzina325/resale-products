@@ -1,5 +1,6 @@
 // import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const AddAPhone = () => {
@@ -11,7 +12,7 @@ const AddAPhone = () => {
     
     const handleAddPhone =event =>{
         event.preventDefault();
-        console.log(product);
+        // console.log(product);
       const sellerName =`${user?.displayName}`;
       const email =`${user?.email}`;
       // const seller_verification=`${currentUser.status}`;
@@ -26,6 +27,9 @@ const AddAPhone = () => {
       .then(res=>res.json())
       .then(data=>{
         console.log(data);
+        if(data.acknowledged){
+          toast.success('product addedd successfully')
+        }
         navigate('/dashboard/myproducts')
       })
         }
@@ -141,7 +145,8 @@ const handleInputBlur = event =>{
 </div>
         <div className="form-control mt-6">
           <button type='submit'className="btn btn-primary">Add phone</button>
-        </div>   
+        </div> 
+        <Toaster></Toaster>  
         </form> 
         </div>
         </div>

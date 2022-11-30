@@ -1,5 +1,6 @@
 import React, {  useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../BookingModal/BookingModal';
 
 import PhoneItem from './PhoneItem';
 
@@ -9,7 +10,7 @@ const PhoneCard = () => {
 //   console.log(phone)
   console.log(phones)
   const[products,setProducts]=useState([]);
-  
+  const[phone,setPhone]=useState(null)
 
 
     useEffect(()=>{
@@ -22,11 +23,19 @@ const PhoneCard = () => {
    
     return (
         <div>
+           <div>
            { products.map(product=> <PhoneItem
             key={product._id}
            product={product}
+           setPhone={setPhone}
            
            ></PhoneItem>)}
+           </div>
+           {
+            phone && <BookingModal phone={phone}
+            setPhone={setPhone}
+            ></BookingModal>
+           }
         </div>
     );
 };
