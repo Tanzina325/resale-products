@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 
 const DashboardLayout = () => {
     const {user}=useContext(AuthContext);
+    
     const[currentUser,setCurrentUser]=useState({});
 
     useEffect(()=>{
@@ -27,15 +29,18 @@ const DashboardLayout = () => {
   <div className="drawer-side">
     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-       {currentUser.role==='seller' ? 
-      <>
+       {currentUser.role==='seller' ?  
+       <>
       <li><Link to='/dashboard/addaphone'>Add a product </Link></li>
-      <li><Link to='/dashboard/myproducts'>My product</Link></li>
-      </> : currentUser.role==='admin' ? 
+      <li><Link to='/dashboard/myproducts'>My product</Link></li> 
+       </> : currentUser.role==='admin' ? 
+      
       <>
       <li><Link to='/dashboard/allbuyers'>All buyers </Link></li>
-      <li><Link to='/dashboard/allsellers'>My sellers</Link></li>
-      </> : <li><Link to='/dashboard/myorders'>My orders </Link></li>} 
+      <li><Link to='/dashboard/allsellers'>My sellers</Link></li></>
+      
+      
+        : <li><Link to='/dashboard/myorders'>My orders </Link></li>}
       
       
     </ul>

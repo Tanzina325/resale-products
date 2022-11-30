@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -15,7 +15,7 @@ const SignUp = () => {
     const googleProvider = new GoogleAuthProvider()
     
     const from =location.state?.from?.pathname || '/';
-    
+    // const [verifyuser, setVerifyUser]= useState({});
     const handleSubmit =event =>{
         event.preventDefault();
         const form = event.target;
@@ -33,11 +33,11 @@ const SignUp = () => {
             console.log(user);
             form.reset();
             setError(error.message)
-            // handleUpdateUserProfile(name,photoURL,role,email)
+           
             const profile ={
               displayName:name,
-              photoURL:photoURL,
-              role:role
+              photoURL:photoURL
+              
               
               
           }
@@ -53,26 +53,32 @@ const SignUp = () => {
             setError(error.message)
         })
     }
-  //   const handleUpdateUserProfile=(name,photoURL)=>{
-  //     const profile ={
-  //         displayName:name,
-  //         photoURL:photoURL,
-          
-          
-          
-  //     }
-  //     updateUserProfile(profile)
-  //     .then(()=>{
-      
-  //     })
-  //     .catch(error=>console.error(error))
-  // }
+
 
     const handleGoogleSignIn=()=>{
+    
         providerLogin(googleProvider)
         .then(result=>{
           const user=result.user;
-          console.log(user);
+         
+          const googleUser ={
+            name:`${user.displayName}`,
+            email:`${user.email}`,
+            role:'buyer'
+          }
+          console.log(user.displayName,user.email);
+          
+
+          fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users',{
+        method: 'POST',
+        headers:{
+            'content-type' :'application/json'
+        },
+        body: JSON.stringify(googleUser)
+        })
+      .then(res=>res.json())
+      .then(data=>console.log(data))
+
           navigate(from,{replace:true})})
           .catch(error=>{
               console.error(error);
@@ -106,7 +112,7 @@ const SignUp = () => {
           <label className="label">
             <span className="label-text">Full Name</span>
           </label>
-          <input type="text"name='name' placeholder="Full Name" className="input input-bordered" />
+          <input type="text"name='name' placeholder="Full Name" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
@@ -118,17 +124,20 @@ const SignUp = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text"name='email' placeholder="email" className="input input-bordered" />
+          <input type="text"name='email' placeholder="email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password'placeholder="password" className="input input-bordered" />
+          <input type="password" name='password' placeholder="password" className="input input-bordered" required />
         </div>
         
-<div className="form-control">
-<input type="text" name="role" list="roleList" className="input input-bordered" />
+<div className="form-control ">
+<label className="label">
+            <span className="label-text">Choose option</span>
+          </label>
+<input type="text" name="role" list="roleList"  className="input input-bordered" required />
     <datalist id="roleList">
         <option value="buyer" />
         <option value="seller" />

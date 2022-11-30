@@ -41,6 +41,24 @@ const LogIn = () => {
         .then(result=>{
           const user=result.user;
           console.log(user);
+          const googleUser ={
+            name:`${user.displayName}`,
+            email:`${user.email}`,
+            role:'buyer'
+          }
+          console.log(user.displayName,user.email);
+          
+
+          fetch('https://b612-used-products-resale-server-side-inky.vercel.app/users',{
+        method: 'POST',
+        headers:{
+            'content-type' :'application/json'
+        },
+        body: JSON.stringify(googleUser)
+        })
+      .then(res=>res.json())
+      .then(data=>console.log(data))
+
           navigate(from,{replace:true})})
           .catch(error=>{
               console.error(error);
