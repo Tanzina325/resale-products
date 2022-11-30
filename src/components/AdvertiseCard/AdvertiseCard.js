@@ -32,9 +32,7 @@ return (
   }</h1>
   </div>
 </ul>
-<div className="card-actions justify-end">
-  <button className="btn btn-primary">Book now</button>
-</div>
+
 </div>
 </div> : ''
 
